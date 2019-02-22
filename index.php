@@ -21,5 +21,5 @@ $result = $db->query($sql) ;
 $row = $result->fetch_assoc() ;
 
 echo "The database says that you have hit it ${row['count']} times" . chr(10) ;
-echo "The contents of the exmaple config secrets file:" . chr(10) ;
+echo "The contents of the example config secrets file:" . chr(10) ;
 echo file_get_contents('config_secret') . chr(10) ;
