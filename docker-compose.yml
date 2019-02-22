@@ -1,0 +1,32 @@
+---
+version: '3'
+
+services:
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: my_secret_pw_shh
+      MYSQL_DATABASE: test_db
+      MYSQL_USER: devuser
+      MYSQL_PASSWORD: devpass
+    expose:
+      - 3306
+    networks:
+      - hello_world
+
+  web:
+    image: grahamskim/hello_world:latest
+    environment:
+      DATABASE_HOST: mysql
+      DATABASE_NAME: test_db
+      DATABASE_USER: devuser
+      DATABASE_PASS: devpass
+    ports:
+      - 8080:80
+    networks:
+      - hello_world
+    volumes:
+      - ./example_config_secret:/var/www/html/config_secret
+
+networks:
+  hello_world:
