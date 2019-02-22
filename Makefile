@@ -7,3 +7,6 @@ build:
 push: build
 	docker push grahamskim/hello-world:latest
 	docker push grahamskim/hello-world:$$(git rev-parse --verify HEAD)
+
+deploy:
+	kubectl set image deployments/hello-world hello-world=grahamskim/hello-world:$$(git rev-parse --verify HEAD) -n public
