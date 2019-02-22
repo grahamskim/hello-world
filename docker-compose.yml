@@ -15,7 +15,7 @@ services:
       - hello_world
 
   web:
-    image: grahamskim/hello_world:latest
+    image: grahamskim/hello-world:latest
     environment:
       DATABASE_HOST: mysql
       DATABASE_NAME: test_db
@@ -26,7 +26,7 @@ services:
     networks:
       - hello_world
     volumes:
-      - ./example_config_secret:/var/www/html/config_secret
+      - ./example_config_secret:/var/www/html/config_secret/example_config_secret
 
 networks:
   hello_world:

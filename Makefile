@@ -1,9 +1,9 @@
 default:
 
 build:
-	docker build -t grahamskim/hello_world:latest .
-	docker tag grahamskim/hello_world:latest grahamskim/hello_world:$$(git rev-parse --verify HEAD)
+	docker build -t grahamskim/hello-world:latest .
+	docker tag grahamskim/hello-world:latest grahamskim/hello-world:$$(git rev-parse --verify HEAD)
 
 push: build
-	docker push grahamskim/hello_world:latest
-	docker push grahamskim/hello_world:$$(git rev-parse --verify HEAD)
+	docker push grahamskim/hello-world:latest
+	docker push grahamskim/hello-world:$$(git rev-parse --verify HEAD)
